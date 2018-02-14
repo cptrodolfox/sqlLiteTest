@@ -26,12 +26,13 @@ export class HomePage {
       db.executeSql('SELECT * FROM new ORDER BY rowid DESC', {})
       .then( res => {
         this.news = [];
+        this.totalNews = 0;
         for(var i=0; i<res.rows.length; i++){
           this.news.push({
             rowid:res.rows.item(i).rowid,
             title:res.rows.item(i).title,
             date:res.rows.item(i).date,
-            description:res.rows.item(i).date
+            description:res.rows.item(i).description
           });
           this.totalNews ++;
         }

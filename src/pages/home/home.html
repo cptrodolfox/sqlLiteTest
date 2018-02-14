@@ -12,20 +12,19 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>News List</h2>
   <ion-list>
     <ion-item-sliding *ngFor="let new of news; let i=index">
       <ion-item nopadding>
         <p>
           <span>{{new.title}}</span><br>
-          <span>{{new.date}}</span><br>
+          <span>{{new.description}}</span><br>
         </p>
         <h3 item-end>
-          Description: ${{new.description}}
+          Date: {{new.date}}
         </h3>
       </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="primary" (click)="deleteNews(new.rowid)">
+      <ion-item-options side="right" (ionSwipe)="deleteNews(new.rowid)">
+        <button ion-button color="danger" (click)="deleteNews(new.rowid)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
@@ -34,6 +33,6 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Total News: ${{totalNews}}</ion-title>
+    <ion-title>Total News: {{totalNews}}</ion-title>
   </ion-toolbar>
 </ion-footer>
