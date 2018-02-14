@@ -7,12 +7,31 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>AddNews</ion-title>
+    <ion-title>Add News</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <h2>Add New</h2>
+  <form (ngSubmit)="saveNews()">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" placeholder="Title" 
+      [(ngModel)]="data.title" name="title" required=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="data.date" name="date" required=""></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-input type="text" placeholder="Description" 
+        [(ngModel)]="data.description" name="description" 
+        required="" ></ion-input>
+      </ion-item>
+
+  </form>
 
 </ion-content>
